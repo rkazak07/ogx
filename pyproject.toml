@@ -106,7 +106,7 @@ starter = [
     "pandas",
     "pillow",
     "pgvector>=0.3.0",
-    "pymilvus[milvus-lite]>=2.4.10,<3.0",  # Cupola pin: pymilvus 3.0 (Milvus 3.0-beta) breaks VARCHAR content field — writes tuple instead of str, kills /v1/vector_stores/{id}/search
+    "pymilvus[milvus-lite,bulk_writer]>=2.4.10,<3.0",  # Cupola pin: pymilvus 3.0 (Milvus 3.0-beta) breaks VARCHAR content field; bulk_writer extra is mandatory because /usr/local/bin/milvus-lite imports it at boot (otherwise ModuleNotFoundError: minio)
     "pymongo",
     "pypdf>=6.10.2",
     "pythainlp",
